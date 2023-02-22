@@ -1,10 +1,13 @@
 import { GlobalStyle } from "./styles/global";
 
+//components
+import Navigation from "./components/Navigation/Navigation";
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Fake Store</h1>
+      <Navigation />
     </>
   );
 }
