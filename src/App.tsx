@@ -1,4 +1,5 @@
 import { GlobalStyle } from "./styles/global";
+import ProductCard from "./components/ProductCard/ProductCard";
 
 //components
 import Navigation from "./components/Navigation/Navigation";
@@ -11,6 +12,7 @@ function App() {
       <GlobalStyle />
       <Navigation />
       <Home />
+      <ProductCard />
       <Footer />
     </>
   );
