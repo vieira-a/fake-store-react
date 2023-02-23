@@ -8,7 +8,7 @@ export const Navbar = styled('nav')`
   justify-content: space-between;
   align-items: center;
   padding: .5rem 1rem;
-  box-shadow: 0 10px 30px 10px ${color.purple['6001']};
+  box-shadow: 0 10px 30px -10px ${color.purple['6001']};
 `
 
 export const Logo = styled('a')`

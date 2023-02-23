@@ -7,4 +7,5 @@ export const Hero = styled('section')`
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
+  color: ${color.slate['800']};
 `

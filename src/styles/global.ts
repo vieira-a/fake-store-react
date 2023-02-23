@@ -7,6 +7,14 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
   ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
