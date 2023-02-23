@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 export default function Navigation() {
   return (
     <S.Navbar>
-      <IconButton>
+      <IconButton aria-label='Open Menu'>
         <MenuIcon />
       </IconButton>
       <S.Logo>Fake Store</S.Logo>
