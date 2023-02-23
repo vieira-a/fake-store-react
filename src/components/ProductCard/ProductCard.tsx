@@ -19,7 +19,6 @@ export default function ProductCard() {
     const response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
     setListProduct(data);
-    console.log(listProduct);
   }
 
   useEffect(() => {
@@ -35,7 +34,9 @@ export default function ProductCard() {
             <S.ProductImage src={item.image} alt="Product Image" />
           </S.ProductImageSection>
           <S.ProductTitle>{item.title}</S.ProductTitle>
-          <S.ProductDescription>{item.description}</S.ProductDescription>
+          <S.ProductDescriptionSection>
+            <S.ProductDescription>{item.description}</S.ProductDescription>
+          </S.ProductDescriptionSection>
           <S.ProductPrice>{item.price}</S.ProductPrice>
         </S.CardProduct>
       ))}

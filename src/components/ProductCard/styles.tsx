@@ -5,7 +5,7 @@ export const ContainerProducts = styled("section")`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-inline: 1.2rem;
+  margin: 3.2rem 1.2rem;
 `;
 
 export const CardProduct = styled("div")`
@@ -14,7 +14,7 @@ export const CardProduct = styled("div")`
   gap: 2rem;
   border: 1px solid ${color.slate["300"]};
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.2rem;
   background-color: white;
 `;
 
@@ -32,16 +32,17 @@ export const ProductImageSection = styled("div")`
 
 export const ProductImage = styled("img")`
   max-width: 50%;
-  margin: auto;
-  @media (min-width: 1024px) {
-    max-height: 100px;
-  }
 `;
 
 export const ProductTitle = styled("h2")`
   font-size: 1.5rem;
   color: black;
   font-weight: 700;
+`;
+
+export const ProductDescriptionSection = styled("div")`
+  display: flex;
+  justify-content: center;
 `;
 
 export const ProductDescription = styled("p")`
