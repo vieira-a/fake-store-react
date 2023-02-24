@@ -7,7 +7,7 @@ export const ButtonAddToCart = styled("button")`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding-block: 0.6rem;
+  padding-block: 1rem;
   font-size: 1.2rem;
   font-weight: 700;
   background-color: ${color.purple["600"]};

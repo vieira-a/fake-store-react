@@ -1,10 +1,10 @@
 import * as S from "./styles";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 export default function AddCart() {
   return (
     <S.ButtonAddToCart>
-      <AddShoppingCartIcon />
+      <ShoppingBagIcon />
       Add to Cart
     </S.ButtonAddToCart>
   );
