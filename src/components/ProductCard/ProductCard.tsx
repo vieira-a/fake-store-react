@@ -1,10 +1,12 @@
-//import data from "../../mock/data.json";
+import data from "../../mock/data.json";
+
 import { useState, useEffect } from "react";
 import AddCart from "../AddCart/AddCart";
 
 import * as S from "./styles";
 
 export default function ProductCard() {
+  /* Fetch online endpoint
   interface Product {
     id: Number;
     title: String;
@@ -15,8 +17,7 @@ export default function ProductCard() {
   }
 
   const [listProduct, setListProduct] = useState<Product[]>([]);
-
-  async function fetchProduct() {
+    async function fetchProduct() {
     const response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
     setListProduct(data);
@@ -24,11 +25,12 @@ export default function ProductCard() {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, []); 
+  */
 
   return (
     <S.ContainerProducts>
-      {listProduct.map((item) => (
+      {data.map((item) => (
         <S.CardProduct key={`id${item.id}`}>
           <S.ProductCategory>{item.category}</S.ProductCategory>
           <S.ProductImageSection>
