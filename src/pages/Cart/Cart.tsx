@@ -2,6 +2,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import * as S from "./styles";
 import { color } from "../../components/UI/colors";
+import BackBuy from "../../components/BackBuy/BackBuy";
 
 export default function Cart() {
   return (
@@ -13,7 +14,9 @@ export default function Cart() {
         </IconButton>
       </S.CartHeader>
       <S.CartSection>
-        <S.CartTitle>Cart</S.CartTitle>
+        <S.CartTitle>Shopping cart</S.CartTitle>
+        <S.CartMessage>Your cart is empty!</S.CartMessage>
+        <BackBuy />
       </S.CartSection>
     </>
   );

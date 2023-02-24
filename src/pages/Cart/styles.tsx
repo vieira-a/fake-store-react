@@ -18,11 +18,18 @@ export const CartLogo = styled("a")`
 
 export const CartSection = styled("section")`
   padding: 0.5rem 1rem;
-  display: flex;
 `;
 
 export const CartTitle = styled("h4")`
   font-size: 1.2rem;
   font-weight: 700;
   color: ${color.purple["800"]};
+`;
+
+export const CartMessage = styled("p")`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: ${color.purple["600"]};
+  text-align: center;
+  margin-block: 1rem;
 `;
