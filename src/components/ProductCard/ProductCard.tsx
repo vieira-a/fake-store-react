@@ -1,5 +1,6 @@
 //import data from "../../mock/data.json";
 import { useState, useEffect } from "react";
+import AddCart from "../AddCart/AddCart";
 
 import * as S from "./styles";
 
@@ -38,6 +39,7 @@ export default function ProductCard() {
             <S.ProductDescription>{item.description}</S.ProductDescription>
           </S.ProductDescriptionSection>
           <S.ProductPrice>{item.price}</S.ProductPrice>
+          <AddCart />
         </S.CardProduct>
       ))}
     </S.ContainerProducts>

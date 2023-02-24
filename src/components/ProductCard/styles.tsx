@@ -27,11 +27,11 @@ export const ProductCategory = styled("p")`
 
 export const ProductImageSection = styled("div")`
   padding-block: 1rem;
-  text-align: center;
 `;
 
 export const ProductImage = styled("img")`
   max-width: 50%;
+  margin-inline: auto;
 `;
 
 export const ProductTitle = styled("h2")`
