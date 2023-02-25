@@ -6,18 +6,24 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 
+import { Link } from "react-router-dom";
+
 export default function Navigation() {
   return (
     <S.Navbar>
       <IconButton aria-label="Open Menu">
         <MenuIcon />
       </IconButton>
-      <S.Logo>Fake Store</S.Logo>
+      <Link to={"/"}>
+        <S.Logo>Fake Store</S.Logo>
+      </Link>
       <S.NavbarIcons>
-        <IconButton aria-label="cart">
-          <ShoppingCartIcon />
-          <Badge badgeContent={0} />
-        </IconButton>
+        <Link to={"/cart"}>
+          <IconButton aria-label="cart">
+            <ShoppingCartIcon />
+            <Badge badgeContent={0} />
+          </IconButton>
+        </Link>
         <Stack direction="row" spacing={2}>
           <Avatar
             alt="Anderson Vieira"

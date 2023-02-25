@@ -11,8 +11,13 @@ export const CartHeader = styled("header")`
   box-shadow: 0 10px 30px -10px ${color.purple["6001"]};
 `;
 
+export const CartNav = styled("div")`
+  display: flex;
+  align-items: center;
+`;
+
 export const CartLogo = styled("a")`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 600;
 `;
 

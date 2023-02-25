@@ -11,7 +11,7 @@ export const Navbar = styled("nav")`
   box-shadow: 0 10px 30px -10px ${color.purple["6001"]};
 `;
 
-export const Logo = styled("a")`
+export const Logo = styled("h1")`
   font-size: 1.8rem;
   font-weight: bold;
 `;
