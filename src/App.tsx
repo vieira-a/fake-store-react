@@ -1,5 +1,6 @@
 import { GlobalStyle } from "./styles/global";
 import ProductCard from "./components/ProductCard/ProductCard";
+import CartProvider from "./context/CartContext";
 
 //components
 import Navigation from "./components/Navigation/Navigation";
@@ -10,12 +11,14 @@ import Cart from "./pages/Cart/Cart";
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Cart />
-      <Navigation />
-      <Home />
-      <ProductCard />
-      <Footer />
+      <CartProvider>
+        <GlobalStyle />
+        <Cart />
+        <Navigation />
+        <Home />
+        <ProductCard />
+        <Footer />
+      </CartProvider>
     </>
   );
 }
