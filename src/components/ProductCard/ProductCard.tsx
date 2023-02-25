@@ -1,19 +1,29 @@
 import data from "../../mock/data.json";
+import { CartContextType, ICart } from "../../types/cart";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AddCart from "../AddCart/AddCart";
 
 import * as S from "./styles";
 
 export default function ProductCard() {
+  const [cart, setCart] = useState<ICart[]>([]);
+  const handleCart = (productId: number) => {
+    data.map((product) => {
+      if (product.id === productId) {
+        setCart([...cart, product]);
+      }
+    });
+  };
+
   /* Fetch online endpoint
   interface Product {
-    id: Number;
-    title: String;
-    category: String;
-    description: String;
-    image?: any;
-    price: String;
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    images: any;
+    price: string;
   }
 
   const [listProduct, setListProduct] = useState<Product[]>([]);
@@ -31,7 +41,7 @@ export default function ProductCard() {
   return (
     <S.ContainerProducts>
       {data.map((item) => (
-        <S.CardProduct key={`id${item.id}`}>
+        <S.CardProduct key={`id${item.id}`} id={`${item.id}`}>
           <S.ProductCategory>{item.category}</S.ProductCategory>
           <S.ProductImageSection>
             <S.ProductImage src={item.image} alt="Product Image" />
@@ -41,7 +51,7 @@ export default function ProductCard() {
             <S.ProductDescription>{item.description}</S.ProductDescription>
           </S.ProductDescriptionSection>
           <S.ProductPrice>{item.price}</S.ProductPrice>
-          <AddCart />
+          <AddCart productId={item.id} onClick={() => handleCart(item.id)} />
         </S.CardProduct>
       ))}
     </S.ContainerProducts>

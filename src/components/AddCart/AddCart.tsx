@@ -1,9 +1,15 @@
 import * as S from "./styles";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import { ReactNode } from "react";
 
-export default function AddCart() {
+interface AddCartProps {
+  productId: number;
+  onClick: any;
+}
+
+export default function AddCart({ productId, onClick }: AddCartProps) {
   return (
-    <S.ButtonAddToCart>
+    <S.ButtonAddToCart onClick={onClick}>
       <ShoppingBagIcon />
       Add to Cart
     </S.ButtonAddToCart>
