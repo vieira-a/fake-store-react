@@ -1,14 +1,40 @@
-import * as React from "react";
+import { useState, createContext } from "react";
 import { ICart, CartContextType } from "../types/cart";
+import data from "../mock/data.json";
 
-export const CartContext = React.createContext<CartContextType | null>(null);
+export const CartContext = createContext<CartContextType | null>(null);
 
 type Props = {
   children?: React.ReactNode;
 };
-const CartProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = React.useState<ICart[]>([]);
 
+const CartProvider: React.FC<Props> = ({ children }) => {
+  const [cart, setCart] = useState<Object[]>([]);
+
+  const updateTotalPrice = (amount: number, price: number) => {
+    return amount * price;
+  };
+
+  const saveCart = (productId: number) => {
+    data.map((product) => {
+      if (product.id === productId) {
+        setCart([
+          ...cart,
+          [
+            {
+              item: product,
+              amount: 1,
+              total: updateTotalPrice(1, product.price),
+            },
+          ],
+        ]);
+      }
+    });
+  };
+
+  console.log(cart);
+
+  /* Old context
   const saveCart = (cart: ICart) => {
     const newCart: ICart = {
       id: cart.id,
@@ -22,6 +48,7 @@ const CartProvider: React.FC<Props> = ({ children }) => {
     };
     setCart([...[cart], newCart]);
   };
+
   const updateCart = (id: number) => {
     cart.filter((item: ICart) => {
       if (item.id === id) {
@@ -29,9 +56,10 @@ const CartProvider: React.FC<Props> = ({ children }) => {
         setCart([...cart]);
       }
     });
-  };
+  }; */
+
   return (
-    <CartContext.Provider value={{ cart, saveCart, updateCart }}>
+    <CartContext.Provider value={{ cart, saveCart, updateTotalPrice }}>
       {children}
     </CartContext.Provider>
   );

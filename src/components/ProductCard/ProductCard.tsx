@@ -1,35 +1,14 @@
 import data from "../../mock/data.json";
-
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import AddCart from "../AddCart/AddCart";
 
 import * as S from "./styles";
+import { CartContextType } from "../../types/cart";
 
 export default function ProductCard() {
-  const [cart, setCart] = useState<Object[]>([]);
+  const { saveCart } = useContext(CartContext) as CartContextType;
 
-  const updateTotalPrice = (amount: number, price: number) => {
-    return amount * price;
-  };
-
-  const handleCart = (productId: number) => {
-    data.map((product) => {
-      if (product.id === productId) {
-        setCart([
-          ...cart,
-          [
-            {
-              item: product,
-              amount: 1,
-              total: updateTotalPrice(1, product.price),
-            },
-          ],
-        ]);
-      }
-    });
-  };
-
-  console.log(cart);
   /* Fetch online endpoint
   interface Product {
     id: number;
@@ -65,7 +44,7 @@ export default function ProductCard() {
             <S.ProductDescription>{item.description}</S.ProductDescription>
           </S.ProductDescriptionSection>
           <S.ProductPrice>{item.price}</S.ProductPrice>
-          <AddCart productId={item.id} onClick={() => handleCart(item.id)} />
+          <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
         </S.CardProduct>
       ))}
     </S.ContainerProducts>
