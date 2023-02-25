@@ -10,6 +10,7 @@ export interface ICart {
     rate: number;
     count: number;
   };
+<<<<<<< HEAD
   amount?: number;
   total?: number;
 }
@@ -18,6 +19,8 @@ export interface IProductCart {
   item: [];
   amount: number;
   total: () => void;
+=======
+>>>>>>> 794d1343bf258d3147715db23ad146092167a7a2
 }
 
 //cart methods
