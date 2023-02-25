@@ -1,5 +1,4 @@
 import data from "../../mock/data.json";
-import { CartContextType, ICart } from "../../types/cart";
 
 import { useState } from "react";
 import AddCart from "../AddCart/AddCart";
@@ -7,15 +6,30 @@ import AddCart from "../AddCart/AddCart";
 import * as S from "./styles";
 
 export default function ProductCard() {
-  const [cart, setCart] = useState<ICart[]>([]);
+  const [cart, setCart] = useState<Object[]>([]);
+
+  const updateTotalPrice = (amount: number, price: number) => {
+    return amount * price;
+  };
+
   const handleCart = (productId: number) => {
     data.map((product) => {
       if (product.id === productId) {
-        setCart([...cart, product]);
+        setCart([
+          ...cart,
+          [
+            {
+              item: product,
+              amount: 1,
+              total: updateTotalPrice(1, product.price),
+            },
+          ],
+        ]);
       }
     });
   };
 
+  console.log(cart);
   /* Fetch online endpoint
   interface Product {
     id: number;
