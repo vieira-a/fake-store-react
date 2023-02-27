@@ -11,13 +11,11 @@ import { useContext } from "react";
 import { CartContextType } from "../../types/cart";
 import { CartContext } from "../../context/CartContext";
 import { borderRight, margin } from "@mui/system";
+import { Text } from "../../components/Text/Text";
 
 export default function Cart() {
-  const { cart } = useContext(CartContext) as CartContextType;
+  const { cart, updateTotalPrice } = useContext(CartContext) as CartContextType;
 
-  {
-    /* <S.CartMessage>Your cart is empty!</S.CartMessage> */
-  }
   return (
     <>
       <S.CartHeader>
@@ -55,7 +53,6 @@ export default function Cart() {
                     <S.CartProductAmount>
                       {product[0].amount}
                     </S.CartProductAmount>
-
                     <AddIcon
                       sx={{ borderInline: `1px solid ${color.slate["500"]}` }}
                     />
@@ -64,10 +61,13 @@ export default function Cart() {
                   <S.CartProductPrice>$ {product[0].price}</S.CartProductPrice>
                 </S.CartCalculation>
               </S.CartProductInfo>
+              <S.CartTotalToPay>
+                <p>Subtotal</p>
+                <p>{updateTotalPrice(product[0].amount, product[0].price)}</p>
+              </S.CartTotalToPay>
             </>
           ))}
         </S.CartProductContainer>
-        <S.CartTotalToPay>Total a pagar</S.CartTotalToPay>
       </S.CartSection>
     </>
   );
