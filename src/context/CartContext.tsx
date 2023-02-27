@@ -15,6 +15,10 @@ const CartProvider: React.FC<Props> = ({ children }) => {
     return amount * price;
   };
 
+  const updateAmount = (amount: number) => {
+    return amount++;
+  };
+
   const saveCart = (productId: number) => {
     data.map((product) => {
       if (product.id === productId) {
@@ -33,10 +37,6 @@ const CartProvider: React.FC<Props> = ({ children }) => {
       }
     });
   };
-
-  cart.map((item: any) => {
-    console.log(typeof item[0].image);
-  });
 
   // data.map((item) => {
   //   console.log("*** DATA", item);
@@ -67,7 +67,9 @@ const CartProvider: React.FC<Props> = ({ children }) => {
   }; */
 
   return (
-    <CartContext.Provider value={{ cart, saveCart, updateTotalPrice }}>
+    <CartContext.Provider
+      value={{ cart, setCart, saveCart, updateTotalPrice, updateAmount }}
+    >
       {children}
     </CartContext.Provider>
   );

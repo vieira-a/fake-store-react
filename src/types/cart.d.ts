@@ -11,7 +11,7 @@
 //     count: number;
 //   };
 
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 //   amount?: number;
 //   total?: number;
@@ -26,7 +26,9 @@ export interface IProductCart {
 //cart methods
 export type CartContextType = {
   cart: any;
+  setCart: any;
   saveCart: (productId: number) => void;
   updateTotalPrice: (amount: number, price: number) => ReactNode;
+  updateAmount: (amount: number) => void;
   //  updateCart: (id: number) => void;
 };

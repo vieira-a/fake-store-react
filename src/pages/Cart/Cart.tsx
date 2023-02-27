@@ -1,20 +1,38 @@
-import IconButton from "@mui/material/IconButton";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import DeleteIcon from "@mui/icons-material/Delete";
 import * as S from "./styles";
 import { color } from "../../components/UI/colors";
 import BackBuy from "../../components/BackBuy/BackBuy";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContextType } from "../../types/cart";
 import { CartContext } from "../../context/CartContext";
-import { borderRight, margin } from "@mui/system";
-import { Text } from "../../components/Text/Text";
+import IconButton from "@mui/material/IconButton";
 
 export default function Cart() {
-  const { cart, updateTotalPrice } = useContext(CartContext) as CartContextType;
+  const { cart, setCart, updateTotalPrice, updateAmount } = useContext(
+    CartContext
+  ) as CartContextType;
+
+  const incrementAmount = (event: any) => {
+    let idBotao = Number(event.target.id);
+    cart.map((item: any) => {
+      if (item[0].id === idBotao) {
+        setCart([...cart], item[0].amount++);
+      }
+    });
+  };
+
+  const decrementAmount = (event: any) => {
+    let idBotao = Number(event.target.id);
+    cart.map((item: any) => {
+      if (item[0].id === idBotao) {
+        setCart([...cart], item[0].amount--);
+      }
+      if (item[0].amount < 1) {
+        setCart([...cart], (item[0].amount = 1));
+      }
+    });
+  };
 
   return (
     <>
@@ -47,23 +65,25 @@ export default function Cart() {
                 </S.CartProductHeader>
                 <S.CartCalculation>
                   <S.CartCalculationAmount>
-                    <RemoveIcon
-                      sx={{ borderRight: `1px solid ${color.slate["500"]}` }}
-                    />
+                    <button id={product[0].id} onClick={decrementAmount}>
+                      -
+                    </button>
                     <S.CartProductAmount>
                       {product[0].amount}
                     </S.CartProductAmount>
-                    <AddIcon
-                      sx={{ borderInline: `1px solid ${color.slate["500"]}` }}
-                    />
-                    <DeleteIcon />
+                    <button id={product[0].id} onClick={incrementAmount}>
+                      +
+                    </button>
+                    <button>Remover</button>
                   </S.CartCalculationAmount>
-                  <S.CartProductPrice>$ {product[0].price}</S.CartProductPrice>
+                  <S.CartProductPrice>
+                    $ {updateTotalPrice(product[0].amount, product[0].price)}
+                  </S.CartProductPrice>
                 </S.CartCalculation>
               </S.CartProductInfo>
               <S.CartTotalToPay>
                 <p>Subtotal</p>
-                <p>{updateTotalPrice(product[0].amount, product[0].price)}</p>
+                <p></p>
               </S.CartTotalToPay>
             </>
           ))}
