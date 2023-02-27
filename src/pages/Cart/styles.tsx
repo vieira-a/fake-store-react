@@ -29,6 +29,7 @@ export const CartTitle = styled("h4")`
   font-size: 1.2rem;
   font-weight: 700;
   color: ${color.purple["800"]};
+  margin-left: 2rem;
 `;
 
 export const CartMessage = styled("p")`
@@ -48,10 +49,17 @@ export const CartProductContainer = styled("section")`
 
 export const CartProductInfo = styled("div")`
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 4px solid ${color.slate["300"]};
+  padding: 2rem;
+`;
+
+export const CartProductHeader = styled("div")`
+  display: flex;
   gap: 1.5rem;
   align-items: center;
-  padding: 2rem;
-  border-bottom: 4px solid ${color.slate["300"]};
+  padding-block: 1rem;
 `;
 
 export const CartProductImage = styled("img")`
@@ -60,4 +68,40 @@ export const CartProductImage = styled("img")`
 
 export const CartProductTitle = styled("p")`
   color: ${color.slate["800"]};
+`;
+
+export const CartCalculation = styled("div")`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const CartCalculationAmount = styled("div")`
+  display: flex;
+  border: 1px solid ${color.slate["500"]};
+  border-radius: 4px;
+  justify-content: center;
+  & svg {
+    color: ${color.slate["800"]};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const CartProductAmount = styled("p")`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1rem;
+`;
+
+export const CartProductPrice = styled("p")`
+  font-size: 1.2rem;
+  color: ${color.purple["800"]};
+`;
+
+export const CartTotalToPay = styled("div")`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 `;

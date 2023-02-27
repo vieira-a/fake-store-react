@@ -25,6 +25,8 @@ const CartProvider: React.FC<Props> = ({ children }) => {
               id: product.id,
               title: product.title,
               image: product.image,
+              amount: 1,
+              price: product.price,
             },
           ],
         ]);
