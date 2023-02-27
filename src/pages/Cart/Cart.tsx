@@ -10,6 +10,7 @@ import { CartContext } from "../../context/CartContext";
 
 export default function Cart() {
   const { cart } = useContext(CartContext) as CartContextType;
+  let imgSrc = "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg";
 
   return (
     <>
@@ -26,13 +27,12 @@ export default function Cart() {
         <S.CartTitle>Shopping cart</S.CartTitle>
         {/* <S.CartMessage>Your cart is empty!</S.CartMessage> */}
         <S.CartProductContainer>
-        {cart.map((product: any)=>(
-
-          <S.CartProductInfo key={Math.random()}>
-            <S.CartProductTitle>{product[0].title}</S.CartProductTitle>
-          </S.CartProductInfo>
-          
-        ))}
+          {cart.map((product: any) => (
+            <S.CartProductInfo key={Math.random()}>
+              <S.CartProductImage src={product[0].image} />
+              <S.CartProductTitle>{product[0].title}</S.CartProductTitle>
+            </S.CartProductInfo>
+          ))}
         </S.CartProductContainer>
         <Link to={"/"}>
           <BackBuy />

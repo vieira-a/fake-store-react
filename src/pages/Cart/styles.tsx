@@ -22,7 +22,7 @@ export const CartLogo = styled("a")`
 `;
 
 export const CartSection = styled("section")`
-  padding: 0.5rem 1rem;
+  padding-block: 1rem;
 `;
 
 export const CartTitle = styled("h4")`
@@ -39,23 +39,25 @@ export const CartMessage = styled("p")`
   margin-block: 1rem;
 `;
 
-export const CartProductContainer = styled('section')`
+export const CartProductContainer = styled("section")`
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-`
+`;
 
-export const CartProductInfo = styled('div')`
+export const CartProductInfo = styled("div")`
   display: flex;
-  gap: .5rem;
-  justify-content: center;
-`
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 4px solid ${color.slate["300"]};
+`;
 
-export const CartProductImage = styled('img')`
-  width: 50%;
-`
+export const CartProductImage = styled("img")`
+  width: 15%;
+`;
 
-export const CartProductTitle = styled('p')`
-  color: ${color.slate['800']};
-`
+export const CartProductTitle = styled("p")`
+  color: ${color.slate["800"]};
+`;

@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import { ICart, CartContextType } from "../types/cart";
+import { CartContextType } from "../types/cart";
 import data from "../mock/data.json";
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -18,17 +18,27 @@ const CartProvider: React.FC<Props> = ({ children }) => {
   const saveCart = (productId: number) => {
     data.map((product) => {
       if (product.id === productId) {
-        setCart([...cart, 
+        setCart([
+          ...cart,
           [
             {
-              id: product.id, 
+              id: product.id,
               title: product.title,
-            }
-          ]
-        ])
+              image: product.image,
+            },
+          ],
+        ]);
       }
     });
   };
+
+  cart.map((item: any) => {
+    console.log(typeof item[0].image);
+  });
+
+  // data.map((item) => {
+  //   console.log("*** DATA", item);
+  // });
 
   /* Old context
   const saveCart = (cart: ICart) => {
