@@ -38,3 +38,24 @@ export const CartMessage = styled("p")`
   text-align: center;
   margin-block: 1rem;
 `;
+
+export const CartProductContainer = styled('section')`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+`
+
+export const CartProductInfo = styled('div')`
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+`
+
+export const CartProductImage = styled('img')`
+  width: 50%;
+`
+
+export const CartProductTitle = styled('p')`
+  color: ${color.slate['800']};
+`

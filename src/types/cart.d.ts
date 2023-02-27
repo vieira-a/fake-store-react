@@ -23,7 +23,7 @@ export interface IProductCart {
 
 //cart methods
 export type CartContextType = {
-  cart: Object[];
+  cart: any;
   saveCart: (productId: number) => void;
   updateTotalPrice: (amount: number, price: number) => void;
   //  updateCart: (id: number) => void;

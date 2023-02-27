@@ -9,7 +9,7 @@ type Props = {
 };
 
 const CartProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = useState<Object[]>([]);
+  const [cart, setCart] = useState<any>([]);
 
   const updateTotalPrice = (amount: number, price: number) => {
     return amount * price;
@@ -18,21 +18,17 @@ const CartProvider: React.FC<Props> = ({ children }) => {
   const saveCart = (productId: number) => {
     data.map((product) => {
       if (product.id === productId) {
-        setCart([
-          ...cart,
+        setCart([...cart, 
           [
             {
-              item: product,
-              amount: 1,
-              total: updateTotalPrice(1, product.price),
-            },
-          ],
-        ]);
+              id: product.id, 
+              title: product.title,
+            }
+          ]
+        ])
       }
     });
   };
-
-  console.log(cart);
 
   /* Old context
   const saveCart = (cart: ICart) => {
