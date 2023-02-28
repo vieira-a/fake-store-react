@@ -12,8 +12,6 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { ButtonUpdateAmount } from "../../components/ButtonUpdateAmount/ButtonUpdateAmount";
-
 export default function Cart() {
   const { cart, setCart, updateTotalPrice, updateAmount } = useContext(
     CartContext
