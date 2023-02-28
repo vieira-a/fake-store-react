@@ -96,9 +96,26 @@ export const UpdateAmountSection = styled("div")`
 `;
 
 export const ButtonUpdateAmount = styled("button")`
-  padding-inline: 0.2rem;
+  display: flex;
+  padding-inline: 0.5rem;
   font-size: 2rem;
   font-weight: 700;
+`;
+
+export const ButtonRemoveAmount = styled(ButtonUpdateAmount)`
+  display: inline;
+  border-right: 1px solid ${color.slate["500"]};
+`;
+
+export const ButtonAddAmount = styled(ButtonUpdateAmount)`
+  display: inline;
+  border-left: 1px solid ${color.slate["500"]};
+`;
+
+export const ButtonRemoveProduct = styled(ButtonUpdateAmount)`
+  display: inline;
+  background-color: ${color.purple["800"]};
+  color: ${color.slate["50"]};
 `;
 
 export const CartProductAmount = styled("p")`

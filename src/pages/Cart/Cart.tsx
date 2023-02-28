@@ -11,6 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { borderLeft } from "@mui/system";
 
 export default function Cart() {
   const { cart, setCart, newCart, updateTotalPrice, updateAmount } = useContext(
@@ -86,28 +87,28 @@ export default function Cart() {
               <S.CartCalculation>
                 <S.CartCalculationAmount>
                   <S.UpdateAmountSection>
-                    <S.ButtonUpdateAmount
+                    <S.ButtonRemoveAmount
                       id={product[0].id}
                       onClick={decrementAmount}
                     >
                       <RemoveIcon />
-                    </S.ButtonUpdateAmount>
+                    </S.ButtonRemoveAmount>
                     <S.CartProductAmount>
                       {product[0].amount}
                     </S.CartProductAmount>
-                    <S.ButtonUpdateAmount
+                    <S.ButtonAddAmount
                       id={product[0].id}
                       onClick={incrementAmount}
                     >
                       <AddIcon />
-                    </S.ButtonUpdateAmount>
+                    </S.ButtonAddAmount>
                   </S.UpdateAmountSection>
-                  <S.ButtonUpdateAmount
+                  <S.ButtonRemoveProduct
                     id={product[0].id}
                     onClick={removeProductFromCart}
                   >
                     <DeleteIcon />
-                  </S.ButtonUpdateAmount>
+                  </S.ButtonRemoveProduct>
                 </S.CartCalculationAmount>
                 <S.CartProductPrice>
                   $ {updateTotalPrice(product[0].amount, product[0].price)}

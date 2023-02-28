@@ -46,18 +46,6 @@ const CartProvider: React.FC<Props> = ({ children }) => {
       })
     );
   }, [cart]);
-  console.log("****NEW CART", newCart);
-
-  // console.log(
-  //   "***FILTER",
-  //   cart.filter(
-  //     (v: any, i: any, a: any) => a.findIndex((v2: any) => v2.id === v.id) === i
-  //   )
-  // );
-
-  // data.map((item) => {
-  //   console.log("*** DATA", item);
-  // });
 
   /* Old context
   const saveCart = (cart: ICart) => {
