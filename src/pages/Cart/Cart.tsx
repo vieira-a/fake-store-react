@@ -11,20 +11,24 @@ import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { borderLeft } from "@mui/system";
 
 export default function Cart() {
-  const { cart, setCart, newCart, updateTotalPrice, updateAmount } = useContext(
-    CartContext
-  ) as CartContextType;
+  const {
+    cart,
+    setCart,
+    newCart,
+    updateTotalPrice,
+    updateAmount,
+    totalCartPrice,
+  } = useContext(CartContext) as CartContextType;
 
   const incrementAmount = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     let buttonId = Number(event.currentTarget.id);
-    cart.map((item: any) => {
+    newCart.map((item: any) => {
       if (item[0].id === buttonId) {
-        setCart([...cart], item[0].amount++);
+        setCart([...newCart], item[0].amount++);
       }
     });
   };
@@ -33,12 +37,12 @@ export default function Cart() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     const buttonId = Number(event.currentTarget.id);
-    cart.map((item: any) => {
+    newCart.map((item: any) => {
       if (item[0].id === buttonId) {
-        setCart([...cart], item[0].amount--);
+        setCart([...newCart], item[0].amount--);
       }
       if (item[0].amount < 1) {
-        setCart([...cart], (item[0].amount = 1));
+        setCart([...newCart], (item[0].amount = 1));
       }
     });
   };
@@ -47,11 +51,19 @@ export default function Cart() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     const buttonId = Number(event.currentTarget.id);
-    cart.map((item: any) => {
+    newCart.map((item: any) => {
       if (item[0].id === buttonId) {
-        setCart(cart.filter((item: any) => item[0].id != buttonId));
+        setCart(newCart.filter((item: any) => item[0].id != buttonId));
       }
     });
+  };
+
+  const calculateTotalCart = (arr: any, price: number) => {
+    let finalPrice = 0;
+    arr.map((item: any) => {
+      finalPrice = +item[0].price;
+    });
+    return finalPrice;
   };
 
   return (
@@ -116,8 +128,10 @@ export default function Cart() {
               </S.CartCalculation>
 
               <S.CartTotalToPay>
-                <p>Subtotal</p>
-                <p></p>
+                <S.CartSubtotal>
+                  <p>Subtotal</p>
+                  <S.CartValue>$ {totalCartPrice}</S.CartValue>
+                </S.CartSubtotal>
               </S.CartTotalToPay>
             </S.CartProductInfo>
           ))}

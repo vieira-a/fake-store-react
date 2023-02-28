@@ -53,6 +53,7 @@ export const CartProductContainer = styled("section")`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  padding-bottom: 10rem;
 `;
 
 export const CartProductInfo = styled("div")`
@@ -130,5 +131,23 @@ export const CartProductPrice = styled("p")`
 export const CartTotalToPay = styled("div")`
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
+  border: 1px solid ${color.slate["50"]};
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  padding: 2rem;
+  background-color: ${color.slate["50"]};
+  box-shadow: 0 -1px 30px 1px ${color.purple["6001"]};
+`;
+
+export const CartSubtotal = styled("div")`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CartValue = styled("p")`
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: ${color.purple["800"]};
 `;

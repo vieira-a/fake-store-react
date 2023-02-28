@@ -31,5 +31,6 @@ export type CartContextType = {
   saveCart: (productId: number) => void;
   updateTotalPrice: (amount: number, price: number) => ReactNode;
   updateAmount: (amount: number) => void;
+  totalCartPrice: any;
   //  updateCart: (id: number) => void;
 };
