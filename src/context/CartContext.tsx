@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import { CartContextType } from "../types/cart";
 import data from "../mock/data.json";
 
@@ -10,6 +10,7 @@ type Props = {
 
 const CartProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useState<any>([]);
+  const [newCart, setNewCart] = useState<any>([]);
 
   const updateTotalPrice = (amount: number, price: number) => {
     return amount * price;
@@ -37,6 +38,22 @@ const CartProvider: React.FC<Props> = ({ children }) => {
       }
     });
   };
+
+  useEffect(() => {
+    setNewCart(
+      Array.from(new Set(cart.map((a: any) => a[0].id))).map((id) => {
+        return cart.find((a: any) => a[0].id === id);
+      })
+    );
+  }, [cart]);
+  console.log("****NEW CART", newCart);
+
+  // console.log(
+  //   "***FILTER",
+  //   cart.filter(
+  //     (v: any, i: any, a: any) => a.findIndex((v2: any) => v2.id === v.id) === i
+  //   )
+  // );
 
   // data.map((item) => {
   //   console.log("*** DATA", item);
@@ -68,7 +85,14 @@ const CartProvider: React.FC<Props> = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, setCart, saveCart, updateTotalPrice, updateAmount }}
+      value={{
+        cart,
+        setCart,
+        saveCart,
+        newCart,
+        updateTotalPrice,
+        updateAmount,
+      }}
     >
       {children}
     </CartContext.Provider>

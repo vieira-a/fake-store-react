@@ -13,7 +13,7 @@ import { color } from "../UI/colors";
 import { Link } from "react-router-dom";
 
 export default function Navigation() {
-  const { cart } = useContext(CartContext) as CartContextType;
+  const { newCart } = useContext(CartContext) as CartContextType;
 
   return (
     <S.Navbar>
@@ -28,7 +28,7 @@ export default function Navigation() {
           <IconButton aria-label="cart">
             <ShoppingCartIcon />
             <Badge
-              badgeContent={cart.length}
+              badgeContent={newCart.length}
               sx={{
                 color: `${color.purple["800"]}`,
               }}

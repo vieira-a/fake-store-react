@@ -13,7 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function Cart() {
-  const { cart, setCart, updateTotalPrice, updateAmount } = useContext(
+  const { cart, setCart, newCart, updateTotalPrice, updateAmount } = useContext(
     CartContext
   ) as CartContextType;
 
@@ -67,7 +67,7 @@ export default function Cart() {
       <S.CartSection>
         <S.CartTitle>Shopping cart</S.CartTitle>
         <S.CartMessageSection>
-          {cart.length === 0 && (
+          {newCart.length === 0 && (
             <>
               <S.CartMessageText>Your cart is empty!</S.CartMessageText>
               <Link to={"/"}>
@@ -77,7 +77,7 @@ export default function Cart() {
           )}
         </S.CartMessageSection>
         <S.CartProductContainer>
-          {cart.map((product: any) => (
+          {newCart.map((product: any) => (
             <S.CartProductInfo key={product[0].title}>
               <S.CartProductHeader>
                 <S.CartProductImage src={product[0].image} />

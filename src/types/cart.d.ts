@@ -27,6 +27,7 @@ export interface IProductCart {
 export type CartContextType = {
   cart: any;
   setCart: any;
+  newCart: any;
   saveCart: (productId: number) => void;
   updateTotalPrice: (amount: number, price: number) => ReactNode;
   updateAmount: (amount: number) => void;
