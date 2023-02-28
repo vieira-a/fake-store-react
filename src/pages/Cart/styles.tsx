@@ -85,21 +85,23 @@ export const CartCalculation = styled("div")`
 `;
 export const CartCalculationAmount = styled("div")`
   display: flex;
+  align-items: center;
   border: 1px solid ${color.slate["500"]};
   border-radius: 4px;
-  justify-content: center;
-  & svg {
-    color: ${color.slate["800"]};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+`;
+
+export const UpdateAmountSection = styled("div")`
+  display: flex;
+  align-items: center;
+`;
+
+export const ButtonUpdateAmount = styled("button")`
+  padding-inline: 0.2rem;
+  font-size: 2rem;
+  font-weight: 700;
 `;
 
 export const CartProductAmount = styled("p")`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding-inline: 1rem;
 `;
 

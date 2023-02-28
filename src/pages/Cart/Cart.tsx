@@ -1,4 +1,5 @@
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import React from "react";
 import * as S from "./styles";
 import { color } from "../../components/UI/colors";
 import BackBuy from "../../components/BackBuy/BackBuy";
@@ -7,25 +8,33 @@ import { useContext, useEffect } from "react";
 import { CartContextType } from "../../types/cart";
 import { CartContext } from "../../context/CartContext";
 import IconButton from "@mui/material/IconButton";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+
+import { ButtonUpdateAmount } from "../../components/ButtonUpdateAmount/ButtonUpdateAmount";
 
 export default function Cart() {
   const { cart, setCart, updateTotalPrice, updateAmount } = useContext(
     CartContext
   ) as CartContextType;
 
-  const incrementAmount = (event: any) => {
-    let idBotao = Number(event.target.id);
+  const incrementAmount = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    let buttonId = Number(event.currentTarget.id);
     cart.map((item: any) => {
-      if (item[0].id === idBotao) {
+      if (item[0].id === buttonId) {
         setCart([...cart], item[0].amount++);
       }
     });
   };
 
-  const decrementAmount = (event: any) => {
-    let idBotao = Number(event.target.id);
+  const decrementAmount = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const buttonId = Number(event.currentTarget.id);
     cart.map((item: any) => {
-      if (item[0].id === idBotao) {
+      if (item[0].id === buttonId) {
         setCart([...cart], item[0].amount--);
       }
       if (item[0].amount < 1) {
@@ -66,13 +75,23 @@ export default function Cart() {
               </S.CartProductHeader>
               <S.CartCalculation>
                 <S.CartCalculationAmount>
-                  <button id={product[0].id} onClick={decrementAmount}>
-                    -
-                  </button>
-                  <S.CartProductAmount>{product[0].amount}</S.CartProductAmount>
-                  <button id={product[0].id} onClick={incrementAmount}>
-                    +
-                  </button>
+                  <S.UpdateAmountSection>
+                    <S.ButtonUpdateAmount
+                      id={product[0].id}
+                      onClick={decrementAmount}
+                    >
+                      <RemoveIcon />
+                    </S.ButtonUpdateAmount>
+                    <S.CartProductAmount>
+                      {product[0].amount}
+                    </S.CartProductAmount>
+                    <S.ButtonUpdateAmount
+                      id={product[0].id}
+                      onClick={incrementAmount}
+                    >
+                      <AddIcon />
+                    </S.ButtonUpdateAmount>
+                  </S.UpdateAmountSection>
                   <button>Remover</button>
                 </S.CartCalculationAmount>
                 <S.CartProductPrice>
