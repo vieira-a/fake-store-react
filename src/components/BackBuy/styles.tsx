@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { color } from "../UI/colors";
 
 export const ButtonBackToBuy = styled("button")`
-  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding-block: 1rem;
+  padding: 1rem 3rem;
   font-size: 1.2rem;
   font-weight: 700;
   background-color: ${color.purple["600"]};

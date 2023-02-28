@@ -47,45 +47,44 @@ export default function Cart() {
       </S.CartHeader>
       <S.CartSection>
         <S.CartTitle>Shopping cart</S.CartTitle>
-        {cart.length === 0 && (
-          <>
-            <S.CartMessage>Your cart is empty!</S.CartMessage>
-            <Link to={"/"}>
-              <BackBuy />
-            </Link>
-          </>
-        )}
+        <S.CartMessageSection>
+          {cart.length === 0 && (
+            <>
+              <S.CartMessageText>Your cart is empty!</S.CartMessageText>
+              <Link to={"/"}>
+                <BackBuy />
+              </Link>
+            </>
+          )}
+        </S.CartMessageSection>
         <S.CartProductContainer>
           {cart.map((product: any) => (
-            <>
-              <S.CartProductInfo key={Math.random()}>
-                <S.CartProductHeader>
-                  <S.CartProductImage src={product[0].image} />
-                  <S.CartProductTitle>{product[0].title}</S.CartProductTitle>
-                </S.CartProductHeader>
-                <S.CartCalculation>
-                  <S.CartCalculationAmount>
-                    <button id={product[0].id} onClick={decrementAmount}>
-                      -
-                    </button>
-                    <S.CartProductAmount>
-                      {product[0].amount}
-                    </S.CartProductAmount>
-                    <button id={product[0].id} onClick={incrementAmount}>
-                      +
-                    </button>
-                    <button>Remover</button>
-                  </S.CartCalculationAmount>
-                  <S.CartProductPrice>
-                    $ {updateTotalPrice(product[0].amount, product[0].price)}
-                  </S.CartProductPrice>
-                </S.CartCalculation>
-              </S.CartProductInfo>
+            <S.CartProductInfo key={product[0].title}>
+              <S.CartProductHeader>
+                <S.CartProductImage src={product[0].image} />
+                <S.CartProductTitle>{product[0].title}</S.CartProductTitle>
+              </S.CartProductHeader>
+              <S.CartCalculation>
+                <S.CartCalculationAmount>
+                  <button id={product[0].id} onClick={decrementAmount}>
+                    -
+                  </button>
+                  <S.CartProductAmount>{product[0].amount}</S.CartProductAmount>
+                  <button id={product[0].id} onClick={incrementAmount}>
+                    +
+                  </button>
+                  <button>Remover</button>
+                </S.CartCalculationAmount>
+                <S.CartProductPrice>
+                  $ {updateTotalPrice(product[0].amount, product[0].price)}
+                </S.CartProductPrice>
+              </S.CartCalculation>
+
               <S.CartTotalToPay>
                 <p>Subtotal</p>
                 <p></p>
               </S.CartTotalToPay>
-            </>
+            </S.CartProductInfo>
           ))}
         </S.CartProductContainer>
       </S.CartSection>

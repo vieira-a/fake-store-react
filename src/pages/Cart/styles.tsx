@@ -32,7 +32,15 @@ export const CartTitle = styled("h4")`
   margin-left: 2rem;
 `;
 
-export const CartMessage = styled("p")`
+export const CartMessageSection = styled("div")`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const CartMessageText = styled("p")`
   font-size: 1.8rem;
   font-weight: 700;
   color: ${color.purple["600"]};
