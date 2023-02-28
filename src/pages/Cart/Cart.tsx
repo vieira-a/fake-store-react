@@ -10,6 +10,7 @@ import { CartContext } from "../../context/CartContext";
 import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { ButtonUpdateAmount } from "../../components/ButtonUpdateAmount/ButtonUpdateAmount";
 
@@ -39,6 +40,17 @@ export default function Cart() {
       }
       if (item[0].amount < 1) {
         setCart([...cart], (item[0].amount = 1));
+      }
+    });
+  };
+
+  const removeProductFromCart = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const buttonId = Number(event.currentTarget.id);
+    cart.map((item: any) => {
+      if (item[0].id === buttonId) {
+        setCart(cart.filter((item: any) => item[0].id != buttonId));
       }
     });
   };
@@ -92,7 +104,12 @@ export default function Cart() {
                       <AddIcon />
                     </S.ButtonUpdateAmount>
                   </S.UpdateAmountSection>
-                  <button>Remover</button>
+                  <S.ButtonUpdateAmount
+                    id={product[0].id}
+                    onClick={removeProductFromCart}
+                  >
+                    <DeleteIcon />
+                  </S.ButtonUpdateAmount>
                 </S.CartCalculationAmount>
                 <S.CartProductPrice>
                   $ {updateTotalPrice(product[0].amount, product[0].price)}
