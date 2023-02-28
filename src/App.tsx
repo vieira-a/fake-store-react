@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation/Navigation";
 //pages
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
+import ProductsByCategory from "./pages/ProductsByCategory/ProductsByCategory";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="cart" element={<Cart />} />
+            <Route
+              path="/products/category/:category"
+              element={<ProductsByCategory />}
+            />
           </Routes>
         </BrowserRouter>
       </CartProvider>

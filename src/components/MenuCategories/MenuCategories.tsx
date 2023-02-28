@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import data from "../../mock/data.json";
 import * as S from "./styles";
 export default function MenuCategories() {
@@ -21,7 +22,9 @@ export default function MenuCategories() {
     <>
       {categoryMenu.map((item) => (
         <li key={`category${item}`}>
-          <S.FooterMenuItems href="#">{item}</S.FooterMenuItems>
+          <S.FooterMenuItems>
+            <Link to={`/products/category/${item}`}>{item}</Link>
+          </S.FooterMenuItems>
         </li>
       ))}
     </>
