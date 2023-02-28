@@ -148,6 +148,17 @@ export const CartSubtotal = styled("div")`
 
 export const CartValue = styled("p")`
   font-weight: 700;
-  font-size: 1.5rem;
   color: ${color.purple["800"]};
+`;
+
+export const ButtonCheckOut = styled("button")`
+  margin-top: 1rem;
+  padding-block: 1rem;
+  width: 100%;
+  background-color: ${color.purple["800"]};
+  color: ${color.slate["50"]};
+  margin-inline: auto;
+  text-align: center;
+  justify-content: center;
+  border-radius: 8px;
 `;

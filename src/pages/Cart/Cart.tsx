@@ -58,14 +58,6 @@ export default function Cart() {
     });
   };
 
-  const calculateTotalCart = (arr: any, price: number) => {
-    let finalPrice = 0;
-    arr.map((item: any) => {
-      finalPrice = +item[0].price;
-    });
-    return finalPrice;
-  };
-
   return (
     <>
       <S.CartHeader>
@@ -132,6 +124,7 @@ export default function Cart() {
                   <p>Subtotal</p>
                   <S.CartValue>$ {totalCartPrice}</S.CartValue>
                 </S.CartSubtotal>
+                <S.ButtonCheckOut>Checkout</S.ButtonCheckOut>
               </S.CartTotalToPay>
             </S.CartProductInfo>
           ))}
