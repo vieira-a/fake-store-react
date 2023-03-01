@@ -5,9 +5,11 @@ import AddCart from "../AddCart/AddCart";
 
 import * as S from "./styles";
 import { CartContextType } from "../../types/cart";
+import { useOrderProduct } from "../../hooks/useOrderProduct";
 
 export default function ProductCard() {
   const { saveCart } = useContext(CartContext) as CartContextType;
+  const { changeOrder } = useOrderProduct(data);
 
   /* Fetch online endpoint
   interface Product {
@@ -32,21 +34,30 @@ export default function ProductCard() {
   */
 
   return (
-    <S.ContainerProducts>
-      {data.map((item) => (
-        <S.CardProduct key={`id${item.id}`} id={`${item.id}`}>
-          <S.ProductCategory>{item.category}</S.ProductCategory>
-          <S.ProductImageSection>
-            <S.ProductImage src={item.image} alt="Product Image" />
-          </S.ProductImageSection>
-          <S.ProductTitle>{item.title}</S.ProductTitle>
-          <S.ProductDescriptionSection>
-            <S.ProductDescription>{item.description}</S.ProductDescription>
-          </S.ProductDescriptionSection>
-          <S.ProductPrice>{item.price}</S.ProductPrice>
-          <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
-        </S.CardProduct>
-      ))}
-    </S.ContainerProducts>
+    <>
+      <form>
+        <select onChange={(event) => changeOrder(event.target.value)}>
+          <option value="">Order by price</option>
+          <option value="low-to-high">Low to high</option>
+          <option value="high-to-low">Hight to low</option>
+        </select>
+      </form>
+      <S.ContainerProducts>
+        {data.map((item) => (
+          <S.CardProduct key={`id${item.id}`} id={`${item.id}`}>
+            <S.ProductCategory>{item.category}</S.ProductCategory>
+            <S.ProductImageSection>
+              <S.ProductImage src={item.image} alt="Product Image" />
+            </S.ProductImageSection>
+            <S.ProductTitle>{item.title}</S.ProductTitle>
+            <S.ProductDescriptionSection>
+              <S.ProductDescription>{item.description}</S.ProductDescription>
+            </S.ProductDescriptionSection>
+            <S.ProductPrice>{item.price}</S.ProductPrice>
+            <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
+          </S.CardProduct>
+        ))}
+      </S.ContainerProducts>
+    </>
   );
 }

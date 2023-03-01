@@ -32,14 +32,6 @@ const CartProvider: React.FC<Props> = ({ children }) => {
     //console.log("*****TOTAL PRICE", totalPrice);
   };
 
-  // const updateTotalCart = () => {
-  //   let totalPrice = 0;
-  //   newCart.map((item: any) => {
-  //     totalPrice += Number(item[0].price);
-  //   });
-  //   return totalPrice;
-  // };
-
   const updateAmount = (amount: number) => {
     return amount++;
   };
@@ -74,6 +66,23 @@ const CartProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     setTotalCartPrice(totalProductPrice());
   }, [newCart]);
+
+  // function dynamicSort(property: any) {
+  //   var sortOrder = 1;
+  //   if (property[0] === "-") {
+  //     sortOrder = -1;
+  //     property = property.substr(1);
+  //   }
+  //   return function (a: any, b: any) {
+  //     /* next line works with strings and numbers,
+  //      * and you may want to customize it to your needs
+  //      */
+  //     var result =
+  //       a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+  //     return result * sortOrder;
+  //   };
+  // }
+  // console.log(cart.sort(dynamicSort("price")));
 
   /* Old context
   const saveCart = (cart: ICart) => {
