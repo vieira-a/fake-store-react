@@ -52,3 +52,33 @@ export const ProductDescription = styled("p")`
 export const ProductPrice = styled(ProductTitle)`
   color: ${color.purple["800"]};
 `;
+
+export const PageUtilSection = styled("section")`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 1.2rem;
+`
+
+export const NavIndicator = styled("div")`
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  font-size: .8rem;
+  font-weight: 700;
+  color: ${color.purple['800']};
+`
+
+export const OrderByFilter = styled("div")`
+  & select {
+    padding: .3rem .5rem;
+    font: inherit;
+    font-size: .8rem;
+    border: none;
+    border: 1px solid ${color.slate['500']};
+    border-radius: 4px;
+  }
+  & option {
+    font: inherit !important;
+  }
+`
