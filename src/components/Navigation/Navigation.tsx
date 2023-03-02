@@ -84,7 +84,7 @@ export default function Navigation() {
         </S.MenuList>
       </S.Menu>
       <Link to={"/"}>
-        <S.Logo>Fake Store</S.Logo>
+        <S.Logo>React Fake Store</S.Logo>
       </Link>
       <S.NavbarIcons>
         <Link to={"/cart"}>

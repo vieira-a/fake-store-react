@@ -12,7 +12,7 @@ export const Navbar = styled("nav")`
 `;
 
 export const Logo = styled("h1")`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
 `;
 
