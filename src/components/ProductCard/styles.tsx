@@ -6,6 +6,12 @@ export const ContainerProducts = styled("section")`
   flex-direction: column;
   gap: 1rem;
   margin: 1.2rem;
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-inline: auto;
+  }
 `;
 
 export const CardProduct = styled("div")`
@@ -84,6 +90,13 @@ export const OrderByFilter = styled("div")`
   & option {
     font: inherit !important;
   }
+`;
+
+export const ProductCartTotals = styled("div")`
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+  margin-top: auto;
 `;
 
 export const BackToTop = styled("div")`

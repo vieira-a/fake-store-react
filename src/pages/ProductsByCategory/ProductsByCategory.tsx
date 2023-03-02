@@ -65,7 +65,9 @@ export default function ProductsByCategory() {
             <ProductCardStyles.ProductPrice>
               {item.price}
             </ProductCardStyles.ProductPrice>
-            <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
+            <ProductCardStyles.ProductCartTotals>
+              <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
+            </ProductCardStyles.ProductCartTotals>
           </ProductCardStyles.CardProduct>
         ))}
       </ProductCardStyles.ContainerProducts>
