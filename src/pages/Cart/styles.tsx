@@ -38,6 +38,7 @@ export const CartMessageSection = styled("div")`
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  padding-block: 3rem;
 `;
 
 export const CartMessageText = styled("p")`
