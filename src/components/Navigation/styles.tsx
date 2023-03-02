@@ -23,6 +23,7 @@ export const NavbarIcons = styled("div")`
 
 export const Menu = styled("div")`
   position: absolute;
+  z-index: 10;
   top: 0;
   right: 0;
   width: 100%;
