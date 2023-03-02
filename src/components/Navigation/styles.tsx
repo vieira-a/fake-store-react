@@ -20,3 +20,27 @@ export const NavbarIcons = styled("div")`
   display: flex;
   gap: 1rem;
 `;
+
+export const Menu = styled("div")`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: ${(props) => (props.hidden ? "none" : "visible")};
+  padding: 0.5rem 1rem;
+  background-color: ${color.slate["50"]};
+  box-shadow: 0 2px 15px -1px ${color.purple["600"]};
+`;
+
+export const MenuList = styled("ul")`
+  display: flex;
+  flex-direction: column;
+  padding-block: 2rem;
+  & li {
+    border-top: 1px solid ${color.slate["300"]};
+  }
+`;
+
+export const MenuItem = styled("li")`
+  padding-block: 0.5rem;
+`;
