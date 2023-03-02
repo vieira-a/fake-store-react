@@ -60,28 +60,35 @@ export const PageUtilSection = styled("section")`
   justify-content: space-between;
   margin: 1.2rem;
   gap: 1rem;
-`
+`;
 
 export const NavIndicator = styled("div")`
   display: flex;
   justify-content: center;
-  gap: .5rem;
-  font-size: .8rem;
+  gap: 0.5rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: ${color.purple['800']};
+  color: ${color.purple["800"]};
   text-transform: capitalize;
-`
+`;
 
 export const OrderByFilter = styled("div")`
   & select {
-    padding: .3rem .5rem;
+    padding: 0.3rem 0.5rem;
     font: inherit;
-    font-size: .8rem;
+    font-size: 0.8rem;
     border: none;
-    border: 1px solid ${color.slate['500']};
+    border: 1px solid ${color.slate["500"]};
     border-radius: 4px;
   }
   & option {
     font: inherit !important;
   }
-`
+`;
+
+export const BackToTop = styled("div")`
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: ${(props) => (props.hidden ? "none" : "visible")};
+`;

@@ -1,7 +1,11 @@
 import data from "../../mock/data.json";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import AddCart from "../AddCart/AddCart";
+// import IconButton from "@mui/material/IconButton";
+// import { Link } from "react-router-dom";
+// import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import { color } from "../../components/UI/colors";
 
 import * as S from "./styles";
 import { CartContextType } from "../../types/cart";
@@ -35,18 +39,18 @@ export default function ProductCard() {
 
   return (
     <>
-    <S.PageUtilSection>
-      <S.NavIndicator>Fake Store {'>'} Home</S.NavIndicator>
-      <S.OrderByFilter>
-        <form>
-          <select onChange={(event) => changeOrder(event.target.value)}>
-            <option value="">Order by price</option>
-            <option value="low-to-high">Low to high</option>
-            <option value="high-to-low">Hight to low</option>
-          </select>
-        </form>
-      </S.OrderByFilter>
-    </S.PageUtilSection>
+      <S.PageUtilSection>
+        <S.NavIndicator>Fake Store {">"} Home</S.NavIndicator>
+        <S.OrderByFilter>
+          <form>
+            <select onChange={(event) => changeOrder(event.target.value)}>
+              <option value="">Order by price</option>
+              <option value="low-to-high">Low to high</option>
+              <option value="high-to-low">Hight to low</option>
+            </select>
+          </form>
+        </S.OrderByFilter>
+      </S.PageUtilSection>
       <S.ContainerProducts>
         {data.map((item) => (
           <S.CardProduct key={`id${item.id}`} id={`${item.id}`}>

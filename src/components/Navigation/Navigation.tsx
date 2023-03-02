@@ -42,7 +42,7 @@ export default function Navigation() {
   };
 
   return (
-    <S.Navbar>
+    <S.Navbar id="home">
       <IconButton aria-label="Open Menu" onClick={handleMenu}>
         <MenuIcon />
       </IconButton>

@@ -44,3 +44,10 @@ export const MenuList = styled("ul")`
 export const MenuItem = styled("li")`
   padding-block: 0.5rem;
 `;
+
+export const BackToTop = styled("div")`
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: ${(props) => (props.hidden ? "none" : "visible")};
+`;
