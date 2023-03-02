@@ -62,7 +62,7 @@ export default function ProductCard() {
             <S.ProductDescriptionSection>
               <S.ProductDescription>{item.description}</S.ProductDescription>
             </S.ProductDescriptionSection>
-            <S.ProductPrice>{item.price}</S.ProductPrice>
+            <S.ProductPrice>$ {item.price}</S.ProductPrice>
             <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
           </S.CardProduct>
         ))}

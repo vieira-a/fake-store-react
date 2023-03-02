@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import data from "../../mock/data.json";
-import * as S from "../../components/ProductCard/styles";
+import * as S from "./styles";
+import * as ProductCardStyles from "../../components/ProductCard/styles";
 import * as FooterStyles from "../../components/Footer/styles";
 import { useState, useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
@@ -26,38 +27,51 @@ export default function ProductsByCategory() {
   }, [category]);
 
   return (
-    <>
-    <S.PageUtilSection>
-      <S.NavIndicator>Fake Store {'>'} Category: {category}</S.NavIndicator>
-      <S.OrderByFilter>
-        <form>
-          <select onChange={(event) => changeOrder(event.target.value)}>
-            <option value="">Order by price</option>
-            <option value="low-to-high">Low to high</option>
-            <option value="high-to-low">Hight to low</option>
-          </select>
-        </form>
-      </S.OrderByFilter>
-    </S.PageUtilSection>
-      <S.ContainerProducts>
+    <S.Main>
+      <ProductCardStyles.PageUtilSection>
+        <ProductCardStyles.NavIndicator>
+          Fake Store {">"} Category: {category}
+        </ProductCardStyles.NavIndicator>
+        <ProductCardStyles.OrderByFilter>
+          <form>
+            <select onChange={(event) => changeOrder(event.target.value)}>
+              <option value="">Order by price</option>
+              <option value="low-to-high">Low to high</option>
+              <option value="high-to-low">Hight to low</option>
+            </select>
+          </form>
+        </ProductCardStyles.OrderByFilter>
+      </ProductCardStyles.PageUtilSection>
+      <ProductCardStyles.ContainerProducts>
         {productsByCategory.map((item: any) => (
-          <S.CardProduct key={`id${item.id}`} id={`${item.id}`}>
-            <S.ProductCategory>{item.category}</S.ProductCategory>
-            <S.ProductImageSection>
-              <S.ProductImage src={item.image} alt="Product Image" />
-            </S.ProductImageSection>
-            <S.ProductTitle>{item.title}</S.ProductTitle>
-            <S.ProductDescriptionSection>
-              <S.ProductDescription>{item.description}</S.ProductDescription>
-            </S.ProductDescriptionSection>
-            <S.ProductPrice>{item.price}</S.ProductPrice>
+          <ProductCardStyles.CardProduct key={`id${item.id}`} id={`${item.id}`}>
+            <ProductCardStyles.ProductCategory>
+              {item.category}
+            </ProductCardStyles.ProductCategory>
+            <ProductCardStyles.ProductImageSection>
+              <ProductCardStyles.ProductImage
+                src={item.image}
+                alt="Product Image"
+              />
+            </ProductCardStyles.ProductImageSection>
+            <ProductCardStyles.ProductTitle>
+              {item.title}
+            </ProductCardStyles.ProductTitle>
+            <ProductCardStyles.ProductDescriptionSection>
+              <ProductCardStyles.ProductDescription>
+                {item.description}
+              </ProductCardStyles.ProductDescription>
+            </ProductCardStyles.ProductDescriptionSection>
+            <ProductCardStyles.ProductPrice>
+              {item.price}
+            </ProductCardStyles.ProductPrice>
             <AddCart productId={item.id} onClick={() => saveCart(item.id)} />
-          </S.CardProduct>
+          </ProductCardStyles.CardProduct>
         ))}
-      </S.ContainerProducts>
+      </ProductCardStyles.ContainerProducts>
       <FooterStyles.FooterMenu>
         <MenuCategories />
       </FooterStyles.FooterMenu>
-    </>
+    </S.Main>
   );
 }

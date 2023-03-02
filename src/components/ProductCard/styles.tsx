@@ -5,13 +5,13 @@ export const ContainerProducts = styled("section")`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin: 3.2rem 1.2rem;
+  margin: 1.2rem;
 `;
 
 export const CardProduct = styled("div")`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2rem;
   border: 1px solid ${color.slate["300"]};
   border-radius: 8px;
   padding: 1.2rem;
@@ -51,14 +51,14 @@ export const ProductDescription = styled("p")`
 
 export const ProductPrice = styled(ProductTitle)`
   color: ${color.purple["800"]};
+  text-align: right;
 `;
 
 export const PageUtilSection = styled("section")`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 1.2rem;
+  margin-inline: 1.2rem;
   gap: 1rem;
 `;
 
