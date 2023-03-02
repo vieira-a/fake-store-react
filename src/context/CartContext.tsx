@@ -14,7 +14,7 @@ const CartProvider: React.FC<Props> = ({ children }) => {
   const [totalCartPrice, setTotalCartPrice] = useState<any>();
 
   const updateTotalPrice = (amount: number, price: number) => {
-    return amount * price;
+    return (amount * price).toFixed(2);
   };
 
   const totalProductPrice = () => {
