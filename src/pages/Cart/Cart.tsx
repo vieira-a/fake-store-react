@@ -1,16 +1,28 @@
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import React from "react";
+
+// styles
 import * as S from "./styles";
 import { color } from "../../components/UI/colors";
-import BackBuy from "../../components/BackBuy/BackBuy";
-import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import { CartContextType } from "../../types/cart";
-import { CartContext } from "../../context/CartContext";
+
+// material ui
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
+
+// react hooks
+import { useContext, useEffect } from "react";
+
+// react libs
+import { Link } from "react-router-dom";
+
+// components
+import BackBuy from "../../components/BackBuy/BackBuy";
+
+// context
+import { CartContext } from "../../context/CartContext";
+import { CartContextType } from "../../types/cart";
 
 export default function Cart() {
   const {

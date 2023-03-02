@@ -1,14 +1,26 @@
-import { useParams } from "react-router-dom";
+// database
 import data from "../../mock/data.json";
+
+// styles
 import * as S from "./styles";
 import * as ProductCardStyles from "../../components/ProductCard/styles";
 import * as FooterStyles from "../../components/Footer/styles";
+
+// react hooks
 import { useState, useContext, useEffect } from "react";
-import { CartContext } from "../../context/CartContext";
-import { CartContextType } from "../../types/cart";
-import AddCart from "../../components/AddCart/AddCart";
+
+// custom hooks
 import { useOrderProduct } from "../../hooks/useOrderProduct";
 
+// react libs
+import { useParams } from "react-router-dom";
+
+//context
+import { CartContext } from "../../context/CartContext";
+import { CartContextType } from "../../types/cart";
+
+// components
+import AddCart from "../../components/AddCart/AddCart";
 import MenuCategories from "../../components/MenuCategories/MenuCategories";
 
 export default function ProductsByCategory() {
