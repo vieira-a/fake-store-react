@@ -27,13 +27,18 @@ export default function ProductsByCategory() {
 
   return (
     <>
-      <form>
-        <select onChange={(event) => changeOrder(event.target.value)}>
-          <option value="">Order by price</option>
-          <option value="low-to-high">Low to high</option>
-          <option value="high-to-low">Hight to low</option>
-        </select>
-      </form>
+    <S.PageUtilSection>
+      <S.NavIndicator>Fake Store {'>'} Category: {category}</S.NavIndicator>
+      <S.OrderByFilter>
+        <form>
+          <select onChange={(event) => changeOrder(event.target.value)}>
+            <option value="">Order by price</option>
+            <option value="low-to-high">Low to high</option>
+            <option value="high-to-low">Hight to low</option>
+          </select>
+        </form>
+      </S.OrderByFilter>
+    </S.PageUtilSection>
       <S.ContainerProducts>
         {productsByCategory.map((item: any) => (
           <S.CardProduct key={`id${item.id}`} id={`${item.id}`}>

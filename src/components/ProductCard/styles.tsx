@@ -55,9 +55,11 @@ export const ProductPrice = styled(ProductTitle)`
 
 export const PageUtilSection = styled("section")`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-inline: 1.2rem;
+  margin: 1.2rem;
+  gap: 1rem;
 `
 
 export const NavIndicator = styled("div")`
@@ -67,6 +69,7 @@ export const NavIndicator = styled("div")`
   font-size: .8rem;
   font-weight: 700;
   color: ${color.purple['800']};
+  text-transform: capitalize;
 `
 
 export const OrderByFilter = styled("div")`
