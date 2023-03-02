@@ -1,7 +1,8 @@
+import data from "../../mock/data.json";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import data from "../../mock/data.json";
 import * as S from "./styles";
+
 export default function MenuCategories() {
   const [categoryMenu, setCategoryMenu] = useState<String[]>([]);
 

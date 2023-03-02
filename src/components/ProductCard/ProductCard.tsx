@@ -1,21 +1,28 @@
+// database
 import data from "../../mock/data.json";
-import { useState, useContext, useEffect } from "react";
-import { CartContext } from "../../context/CartContext";
-import AddCart from "../AddCart/AddCart";
-// import IconButton from "@mui/material/IconButton";
-// import { Link } from "react-router-dom";
-// import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+
+// styles
+import * as S from "./styles";
 import { color } from "../../components/UI/colors";
 
-import * as S from "./styles";
-import { CartContextType } from "../../types/cart";
+// react hooks
+import { useContext } from "react";
+
+// custom hook
 import { useOrderProduct } from "../../hooks/useOrderProduct";
+
+// context
+import { CartContext } from "../../context/CartContext";
+import { CartContextType } from "../../types/cart";
+
+// components
+import AddCart from "../AddCart/AddCart";
 
 export default function ProductCard() {
   const { saveCart } = useContext(CartContext) as CartContextType;
   const { changeOrder } = useOrderProduct(data);
 
-  /* Fetch online endpoint
+  /* Fetch online endpoint (TO REFACTOR)
   interface Product {
     id: number;
     title: string;

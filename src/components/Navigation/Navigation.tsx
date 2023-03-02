@@ -1,5 +1,11 @@
+// database
 import data from "../../mock/data.json";
+
+//styles
 import * as S from "./styles";
+import { color } from "../UI/colors";
+
+// material ui
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
@@ -7,11 +13,15 @@ import Badge, { BadgeProps } from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
+
+// react hooks
 import { useContext, useState, useEffect } from "react";
+
+// context
 import { CartContextType } from "../../types/cart";
 import { CartContext } from "../../context/CartContext";
-import { color } from "../UI/colors";
 
+// react libs
 import { Link } from "react-router-dom";
 
 export default function Navigation() {

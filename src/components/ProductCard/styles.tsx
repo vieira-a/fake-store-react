@@ -10,7 +10,6 @@ export const ContainerProducts = styled("section")`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    margin-inline: auto;
   }
 `;
 
