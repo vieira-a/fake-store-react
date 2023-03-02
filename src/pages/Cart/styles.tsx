@@ -34,6 +34,8 @@ export const CartTitle = styled("h4")`
 
 export const CartMessageSection = styled("div")`
   display: flex;
+  position: absolute;
+  width: 100%;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
